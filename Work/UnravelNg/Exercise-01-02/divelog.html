@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dive Log (jQuery)</title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>My Latest Dives (jQuery)</h1>
+
+        <div class="row" id="logbook">
+        </div>
+    </div>
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="dives.js"></script>
+    <script>
+        $(function() {
+            for (var i = 0; i < dives.length; i++) {
+                var dive = dives[i];
+                $("#logbook").append(
+                        "<div class='col-sm-4'>" +
+                        '<h3>' + dive.site + '</h3>' +
+                        '<h4>' + dive.location + '</h4>' +
+                        '<h2>' + dive.depth + ' feet | ' +
+                            dive.time + ' min</h2>' +
+                        '</div>');
+            }
+        }());
+    </script>
+</body>
+</html>
