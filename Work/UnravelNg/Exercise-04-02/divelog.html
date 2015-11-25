@@ -2,10 +2,10 @@
 <html lang="en" ng-app="diveLog">
 <head>
     <meta charset="UTF-8">
-    <title>Dive Log (ng-controller)</title>
+    <title>Dive Log (with API service)</title>
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<body>
+<body ng-controller="diveLogCtrl">
     <div class="container-fluid">
         <h1>My Latest Dives (with API service)</h1>
 
@@ -14,12 +14,12 @@
                 <button class="btn btn-lg btn-primary" ng-click="refreshDives()">Refresh</button>
                 <img ng-show="isLoading()" src="images/progressring.gif" alt="loading spinner">
             </div>
-            <div class=" col-sm-offset-8">
+            <div class=" col-sm-4">
                 <input type="text" class="form-control input-lg" placeholder="Search"
                                                          ng-model="searchKey">
             </div>
         </div>
-        <div class="row" ng-controller="diveLogCtrl">
+        <div class="row">
             <div class="col-sm-4" ng-repeat="dive in dives | filter:searchKey">
                 <h3>{{dive.site}}</h3>
                 <h4>{{dive.location}}</h4>
